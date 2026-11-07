@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop Order</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4eedb;
+            color: #4a3b32;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .order-form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(74, 59, 50, 0.15);
+            width: 320px;
+            border-top: 8px solid #8c786c;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1c7bd;
+            border-radius: 6px;
+            font-family: inherit;
+            color: #4a3b32;
+            background-color: #faf8f5;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .checkbox-group input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            background-color: #6f4e37;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #553c2a;
+        }
+
+        .receipt-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(74, 59, 50, 0.15);
+            width: 320px;
+            border-top: 8px solid #6f4e37;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            color: #6f4e37;
+            letter-spacing: 1px;
+        }
+
+        .divider {
+            border-top: 2px dashed #d1c7bd;
+            margin: 15px 0;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .label {
+            font-weight: 600;
+            color: #8c786c;
+        }
+
+        .value {
+            text-transform: capitalize;
+        }
+
+        .total-section {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0 10px 0;
+            color: #2e1f15;
+        }
+
+        .bonus-alert {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            text-align: center;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 15px;
+            border: 1px solid #c8e6c9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Form Interface for inputs -->
+    <div class="order-form">
+        <h2>📋 PLACE ORDER</h2>
+        <div class="divider"></div>
+        
+        <div class="form-group">
+            <label for="drink-select">Select Drink:</label>
+            <select id="drink-select">
+                <option value="latte">Latte</option>
+                <option value="americano">Americano</option>
+                <option value="mocha">Mocha</option>
+                <option value="tea">Tea</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="size-select">Select Size:</label>
+            <select id="size-select">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="member-check">
+            <label for="member-check">I am a Member</label>
+        </div>
+
+        <button onclick="calculateOrder()">Calculate Total</button>
+    </div>
+
+    <!-- Receipt Display Box -->
+    <div class="receipt-card">
+        <h2>☕ COFFEE RECEIPT</h2>
+        <div class="divider"></div>
+        
+        <div id="order-details">
+            <div class="info-row">
+                <span class="label">Item:</span>
+                <span class="value" id="out-drink">-</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Size:</span>
+                <span class="value" id="out-size">-</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Member Discount:</span>
+                <span class="value" id="out-member">-</span>
+            </div>
+            <div class="divider"></div>
+            <div class="total-section" id="out-total">Total: 0 baht</div>
+        </div>
+
+        <div id="out-bonus"></div>
+    </div>
+
+    <script src="app.js">
+        
+    </script>
+</body>
+
+</html>
